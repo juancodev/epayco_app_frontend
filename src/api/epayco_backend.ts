@@ -7,7 +7,8 @@ export const registerClient = async (data: {
   celular: string;
 }) => {
   try {
-    const response = await axios.post(`${import.meta.env.BASE_URL}/clients/registroCliente`, {
+    console.log(`${import.meta.env.VITE_API_URL}/clients/registroCliente`)
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/clients/registroCliente`, {
       documento: data.documento,
       nombres: data.nombres,
       email: data.email,

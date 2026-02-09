@@ -59,7 +59,7 @@ export const RegisterView = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
           label="Documento ID"
-          name="document"
+          name="documento"
           type="text"
           required
           placeholder="Ej: 123456789"
@@ -68,7 +68,7 @@ export const RegisterView = () => {
         />
         <Input
           label="Nombres Completos"
-          name="names"
+          name="nombres"
           type="text"
           required
           placeholder="Ej: Pepito Pérez"
@@ -86,7 +86,7 @@ export const RegisterView = () => {
         />
         <Input
           label="Celular"
-          name="phone"
+          name="celular"
           type="tel"
           required
           placeholder="Ej: 3001234567"
