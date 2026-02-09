@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { Input } from "@/src/components/ui/Input";
-import { Button } from "@/src/components/ui/Button";
+import { Input } from "../ui/Input";
+import { Button } from "../ui/Button";
+import { registerClient } from "../../api/epayco_backend";
 
 export const RegisterView = () => {
 
@@ -31,6 +32,7 @@ export const RegisterView = () => {
       }
     } catch (error) {
       setMessage({ type: "error", text: "Error de conexión." });
+      console.log(error)
     } finally {
       setLoading(false);
     }
