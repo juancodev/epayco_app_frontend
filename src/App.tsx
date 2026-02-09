@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ViewState } from '../types'
 import { RegisterView } from '../src/components/views/RegisterView'
 import { RechargeView } from '../src/components/views/RechargeView'
+import { PaymentView } from '../src/components/views/PaymentView'
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.REGISTER);

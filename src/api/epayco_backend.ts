@@ -54,13 +54,73 @@ export const rechargeWallet = async (data: {
         'Accept': '*/*'
       }
     })
-    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error("Error al recargar billetera:", error);
     return {
       success: false,
       message: "Error al recargar la billetera."
+    }
+  }
+}
+
+export const requestPayment = async (data: {
+  documento: string;
+  celular: string;
+  valor: number;
+}) => {
+  try {
+
+    if (data.valor <= 0) {
+      return {
+        success: false,
+        message: "El valor a pagar debe ser mayor a cero.",
+        error: "INVALID_AMOUNT"
+      }
+    }
+
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/wallet/solicitarPago`, {
+      documento: data.documento,
+      celular: data.celular,
+      valor: data.valor,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      }
+    })
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.error("Error al solicitar pago:", error);
+    return {
+      success: false,
+      message: "Error al solicitar el pago."
+    }
+  }
+}
+
+export const confirmPayment = async (data: {
+  sessionId: string;
+  token: string;
+}) => {
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/wallet/confirmarPago`, {
+      sessionId: data.sessionId,
+      token: data.token,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      }
+    })
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.error("Error al confirmar pago:", error);
+    return {
+      success: false,
+      message: "Error al confirmar el pago."
     }
   }
 }
