@@ -3,6 +3,7 @@ import { ViewState } from '../types'
 import { RegisterView } from '../src/components/views/RegisterView'
 import { RechargeView } from '../src/components/views/RechargeView'
 import { PaymentView } from '../src/components/views/PaymentView'
+import { BalanceView } from '../src/components/views/BalanceView'
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.REGISTER);

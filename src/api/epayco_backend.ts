@@ -124,3 +124,21 @@ export const confirmPayment = async (data: {
     }
   }
 }
+
+export const checkBalance = async (data: {
+  documento: string;
+  celular: string;
+}) => {
+  try {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/wallet/consultarSaldo?documento=${data.documento}&celular=${data.celular}`)
+
+    console.log("checkbalance", response.data)
+    return response.data;
+  } catch (error) {
+    console.error("Error al consultar saldo:", error);
+    return {
+      success: false,
+      message: "Error al consultar el saldo."
+    }
+  }
+}
